@@ -10,7 +10,7 @@
 #include <vector>
 #include <chrono>
 #include <memory>
-#include "libusb.h"
+#include "libusb-1.0/libusb.h"
 
 
 //#define DEBUG 1
