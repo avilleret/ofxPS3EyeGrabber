@@ -83,6 +83,11 @@ public:
 
 	double getActualFrameRate() const;
 
+	libusb_device* getDevice()
+	{
+	  return device_;
+	}
+
 	void setLED(bool enable);
 
 	static const std::vector<std::shared_ptr<PS3EYECam>>& getDevices(bool forceRefresh = false);

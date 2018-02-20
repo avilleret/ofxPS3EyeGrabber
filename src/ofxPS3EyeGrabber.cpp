@@ -206,7 +206,21 @@ std::vector<ofVideoDevice> ofxPS3EyeGrabber::listDevices() const
         ofVideoDevice device;
         device.id = id++;
         device.deviceName = "PS3-Eye";
-        device.hardwareName = "None"; // TODO: get from libusb.
+
+        uint8_t ports[7];
+        int nb = libusb_get_port_numbers((*iter)->getDevice(), ports, 7);
+        if (nb > 0)
+          device.hardwareName = "port_";
+        else
+          device.hardwareName = "None";
+
+        for(int i=0; i<nb; i++)
+        {
+          if (i>0)
+            device.hardwareName += "-";
+          device.hardwareName += std::to_string(ports[i]);
+        }
+
         device.serialID = ""; // TODO: get from libusb.
         // device.formats.push_back(...) // Formats ... we could list all of them ... but ...
         device.bAvailable = !(*iter)->isStreaming();;
