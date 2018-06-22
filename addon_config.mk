@@ -8,5 +8,3 @@ common:
 	# We depend on ofxKinect for libusb so we don't have to package it with this addon.
 	# ADDON_DEPENDENCIES = ofxKinect ofxOpenCv
 	ADDON_INCLUDES = libs/ps3eye/src/
-	ADDON_LDFLAGS = -lusb-1.0
-
