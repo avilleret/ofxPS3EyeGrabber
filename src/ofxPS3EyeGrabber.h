@@ -26,6 +26,7 @@
 #pragma once
 
 
+#include "ofPixels.h"
 #include "ofBaseTypes.h"
 #include "ofTypes.h"
 #include "ofEvents.h"
